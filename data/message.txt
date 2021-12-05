@@ -1,0 +1,4 @@
+Hello! 
+This is just a text file!
+
+So, today we have learned how to read a file and add it's content into webpage using AJAX concept
