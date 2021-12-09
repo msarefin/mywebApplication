@@ -17,7 +17,7 @@ textButton.addEventListener('click',function(){
 		if(xhr.status ===200){
 			// To catch the data response 
 			let data = xhr.responseText;
-			displayTextData(data);
+			displayTextData(data+'<hr><br>'+'The length of characters is :'+data.length);
 			// console.log(data);
 		}
 	};
