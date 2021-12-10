@@ -4,7 +4,6 @@ const router = express.Router();
 // REST API configuration 
 
 // Employees data
-
 let employees = [
     {
         id : 001,
@@ -25,7 +24,6 @@ let employees = [
 ]
 
 // GET - Employees
-
 router.get('/employees',(request, response) =>{
     response.json(employees)
 }); 
