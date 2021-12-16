@@ -6,7 +6,7 @@ const router = express.Router();
 // Employees data
 let employees = [
     {
-        id : 001,
+        id : '_abcdef',
         first_name : 'Alex',
         last_name : 'Smith',
         email : 'alex@smith.com',
@@ -14,7 +14,7 @@ let employees = [
         ip_address : '127.0.0.1'
     },
     {
-        id : 002,
+        id : '_pqrstw',
         first_name : 'Laura',
         last_name : 'Wilson',
         email : 'laura@wilson.com',
@@ -38,7 +38,7 @@ router.get('/employees',(request, response) =>{
 
 router.post('/employees',(request, response) =>{
     let employee = {
-        id : getID, 
+        id : getID(), 
         first_name : request.body.first_name, 
         last_name : request.body.last_name,
         email : request.body.email, 
@@ -46,7 +46,7 @@ router.post('/employees',(request, response) =>{
         ip_address : request.body.ip_address
 
     };
-    employees.push(employees);
+    employees.push(employee);
     console.log(`POST request receives at server ...${new Date().toLocaleTimeString()}`);
     response.json({msg : 'POST request is successfull ...!'});
 });
