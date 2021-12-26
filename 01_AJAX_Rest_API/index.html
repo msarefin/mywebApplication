@@ -8,9 +8,53 @@
 
 </head>
 <body>
+<!-- Main HTML Document Starts here -->
+
 	<nav class="navbar navbar-dark bg-dark">
 		<a href="#" class ="navbar-brand">Ajax Rest API</a>
 	</nav>
+
+	<div class="container mt-3">
+		<div class="row">
+			<div class="col text-center">
+				<button class="btn btn-success" id="get-btn">GET</button>
+				<button class="btn btn-primary" id="post-btn">POST</button>
+				<button class="btn btn-warning" id="put-btn">PUT</button>
+				<button class="btn btn-danger" id="delete-btn">DELETE</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Table section  -->
+
+	<div class="container mt-3">
+		<div class="row">
+			<div class="col">
+				<table class="table table-hover text-center table-secondary table-striped">
+					<thead class="bg-secondary text-white">
+						<tr>
+							<th>EMPID</th>
+							<th>FIRST NAME</th>
+							<th>LAST NAME</th>
+							<th>EMAIL</th>
+							<th>GENDER</th>
+							<th>IP ADDRESS</th>
+						</tr>
+					</thead>
+					<tbody id="table-body">
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 
 <!--Main HTML Document ends here-->
 	<script type="text/javascript" src="app.js"></script>
