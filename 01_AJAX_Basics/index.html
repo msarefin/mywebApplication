@@ -27,22 +27,49 @@
 
 <body>
 
-    <nav class="navbar navbar-dark bg-dark mt-3">
+    <nav class="navbar navbar-dark bg-dark">
         <a href="#" class="navbar-brand">AJAX Basics</a>
     </nav>
 
     <div class="container mt-3">
         <div class="row">
             <div class="col text-center">
-                <button class="btn btn-primary">Text Data</button>
-                <button class="btn btn-success">JSON Data</button>
-                <button class="btn btn-warning">API Data</button>
+                <button class="btn btn-primary" id="text-btn">Text Data</button>
+                <button class="btn btn-success" id="json-btn">JSON Data</button>
+                <button class="btn btn-warning" id="api-btn">API Data</button>
             </div>
         </div>
     </div>
 
+    <!-- Data Section -->
 
-
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Text Data</h3>
+                    </div>
+                    <div class="card-body" id="text-card"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>JSON Data</h3>
+                    </div>
+                    <div class="card-body" id="json-card"></div>
+                </div>
+            </div><div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>API Data</h3>
+                    </div>
+                    <div class="card-body" id="spi-card"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Bootstrap JS files -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
