@@ -1,3 +1,8 @@
+import {BrainHttp} from "./API/BrainHttp.js"
+
+
+let serverURL = `http://127.0.0.1:3000/api/`
+
 // GET Button
 let getButton = document.querySelector("#get-btn"); 
 getButton.addEventListener('click', function(){
@@ -5,7 +10,9 @@ getButton.addEventListener('click', function(){
 });
 
 let fetchEmployees = () =>{
-    
+    let http = new BrainHttp(); 
+    let url = `${serverURL}/employees`;
+    http.get(url);
 };
 
 // POST Button
