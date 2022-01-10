@@ -9,7 +9,7 @@ let employees = [
         id: '_abcdef',
         first_name: 'John',
         last_name: 'Wilson',
-        gender: 'male',
+        gender: 'Male',
         email: 'john@wilson.com',
         ip_address: '127.0.0.5'
     },
@@ -17,7 +17,7 @@ let employees = [
         id: '_vwxyz',
         first_name: 'Laura',
         last_name: 'Wilson',
-        gender: 'female',
+        gender: 'Female',
         email: 'laura@wilson.com',
         ip_address: '128.0.0.5'
     }
