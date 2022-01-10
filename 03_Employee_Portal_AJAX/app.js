@@ -102,6 +102,7 @@ tableBody.addEventListener('click',function(e){
 });
 
 let populateUpdateModal = (selectedEmployee)=>{
+    document.querySelector('#update-emp-id').value = selectedEmployee.id; 
     document.querySelector('#update-first-name').value = selectedEmployee.first_name; 
     document.querySelector('#update-last-name').value = selectedEmployee.last_name; 
     document.querySelector('#update-gender').value = selectedEmployee.gender; 
