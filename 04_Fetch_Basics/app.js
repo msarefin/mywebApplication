@@ -60,21 +60,26 @@ let fetchAPIData = ()=>{
         response.json().then((data)=>{
             let users = data; 
 
-            let httpTemplate = ''; 
+            let apiHtmlTemp = ''; 
 
             for(let user of users){
-                httpTemplate +=`
+                apiHtmlTemp +=`
                     <ul class = "list-group mt-1">
-                        <li class = "list-group-item"></li>
-                        <li class = "list-group-item"></li>
-                        <li class = "list-group-item"></li>
-                        <li class = "list-group-item"></li>
+                        <li class = "list-group-item">ID: ${user.id}</li>
+                        <li class = "list-group-item">Name: ${user.name}</li>
+                        <li class = "list-group-item">Email: ${user.email}</li>
+                        <li class = "list-group-item">Address: <ul class="list-group mt-1">
+                            <li class = "list-group-item">${user.address.street}</li>
+                            <li class = "list-group-item">${user.address.city}</li>
+                            <li class = "list-group-item">Zip Code: ${user.address.zipcode}</li>
+                        </li></ul>
                         <li class = "list-group-item"></li>
                     </ul>
                 `;
             }
            
-            console.log(user); 
+            document.querySelector('#api-card').innerHTML = apiHtmlTemp; 
+            console.log(users); 
         });
     });
 };
