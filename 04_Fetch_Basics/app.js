@@ -58,7 +58,23 @@ let fetchAPIData = ()=>{
             return;
         }
         response.json().then((data)=>{
-            
+            let users = data; 
+
+            let httpTemplate = ''; 
+
+            for(let user of users){
+                httpTemplate +=`
+                    <ul class = "list-group mt-1">
+                        <li class = "list-group-item"></li>
+                        <li class = "list-group-item"></li>
+                        <li class = "list-group-item"></li>
+                        <li class = "list-group-item"></li>
+                        <li class = "list-group-item"></li>
+                    </ul>
+                `;
+            }
+           
+            console.log(user); 
         });
     });
 };
