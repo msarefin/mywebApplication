@@ -79,7 +79,7 @@ let fetchAPIData = ()=>{
             }
            
             document.querySelector('#api-card').innerHTML = apiHtmlTemp; 
-            console.log(users); 
+            // console.log(users); 
         });
     });
 };
