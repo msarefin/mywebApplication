@@ -1,62 +1,81 @@
 export class BrainHttp{
-    constructor (){
-        this.http = new XMLHttpRequest();
+    constructor(){
+
     }
 
-    // GET Request
+    //The following functions will return a Promice
 
-    get = (url, callback) =>{
-        this.http.open('GET',url, true); 
-        this.http.send(); 
-        this.http.onload = () =>{
-            if(this.http.status ===200){
-                let data = this.http.responseText; 
-                let employees = JSON.parse(data);
-                
-                callback(null,employees);
-            }else{
-                callback(`Error: ${this.http.status}`);
-            }
-        };
+    // GET Request 
+
+    static get(url){ 
+        return new Promise((resolve, reject)=>{
+            fetch(url).then((response) =>{
+                response.json().then((data)=>{
+                    resolve(data);
+                }).catch((err)=>{
+                    reject.error(err);
+                })
+            });
+        });
     }
 
+    // POST Request 
 
-    // POST Request
+    static post(url, data){
+        return new Promise((resolve, reject)=>{
+            fetch(url,{
+                method:'POST',
+                headers:{
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then((response)=>{
+                response.json().then((data)=>{
+                    resolve(data);
+                }).catch((err)=>{
+                    reject.error(err);
+                })
+            }); 
+        });
+    }
 
-    post = (url, employee, callback) =>{
-        this.http.open('POST',url, true);
-        this.http.setRequestHeader('Content-type', 'application/json'); 
-        this.http.send(JSON.stringify(employee)); 
-        this.http.onload =() => {
-            let data = this.http.responseText; 
-            let employees = JSON.parse(data);
-            callback(employees);
-        } 
-    };
+    // PUT Request 
 
-    // PUT Request
-    put = (url, employee, callback) =>{
-        this.http.open('PUT', url, true);
-        this.http.setRequestHeader('Content-type','application/json');
-        this.http.send(JSON.stringify(employee)); 
-        this.http.onload =()=>{
-            let data = this.http.responseText;
-            let employees = JSON.parse(data);
-            callback(employees); 
-        };
-    };
-
+    static put(url, data){
+        return new Promise((resolve, reject)=>{
+            fetch(url,{
+                method:'PUT',
+                headers:{
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then((response)=>{
+                response.json().then((data)=>{
+                    resolve(data);
+                }).catch((err)=>{
+                    reject.error(err);
+                })
+            }); 
+        });
+    }
 
     // DELETE Request 
-    delete  =(url, callback)=>{
-        this.http.open('DELETE',url, true);
-        this.http.setRequestHeader('Content-type','application/json');
-        this.http.send();
-        this.http.onload = ()=>{
-            let data = this.http.responseText; 
-            let employees = JSON.parse(data);
-            callback(employees);
-        };
-    };
+
+    static delete(url){
+        return new Promise((resolve, reject)=>{
+            fetch(url,{
+                method:'DELETE',
+                headers :{
+                    'Content-Type' : 'application/json'
+                }
+            }).then((response)=>{
+                response.json().then((data)=>{
+                    resolve(data); 
+                });
+            }).catch((err)=>{
+                reject.error(err);
+            }); 
+        });
+    }
 
 }
