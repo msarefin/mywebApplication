@@ -16,7 +16,7 @@ let employees = [
     {
         id: '_vwxyz',
         first_name: 'Laura',
-        last_name: 'Wilson',
+        last_name: 'James',
         gender: 'Female',
         email: 'laura@wilson.com',
         ip_address: '128.0.0.5'

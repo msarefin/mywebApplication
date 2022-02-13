@@ -1,5 +1,7 @@
-const express = require('express');
-const app = express();
+// This is the main entry point
+
+const express = require('express'); // load the express 
+const app = express(); // Initialize the express
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const apiRouter = require('./api/apiRouter'); 

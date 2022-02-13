@@ -1,3 +1,19 @@
-hello! 
+hello! <br>
 this message was taken from a text file!
 <br><hr> This is supposed to be next line
+<hr>
+
+Fetch API <br><hr>
+fetch(url).then((response) =>{
+    if(response.status !==200){
+        console.log(`Something went worng: `${response.status});
+        return; 
+    }
+    let text = response.text().then((data) =>{
+        let htmlTemp = `<h3>${data}</h3>`
+
+        document.querySelector('css class or id').innerHtml = htmlTemp;
+        console.log(data);
+    });
+
+})
