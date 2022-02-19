@@ -63,3 +63,8 @@ let clearFromFields = () =>{
     document.querySelector('#add-ip-address').value = ''; 
 }
 
+//Click on table body
+let tableBody = document.querySelector('#table-body');
+tableBody.addEventListener('click', function(e){
+    let targetElement = e.target; 
+})
