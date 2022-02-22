@@ -67,4 +67,8 @@ let clearFromFields = () =>{
 let tableBody = document.querySelector('#table-body');
 tableBody.addEventListener('click', function(e){
     let targetElement = e.target; 
+    console.log(targetElement);
+    //delete Button
+
+    if(targetElement.classList.contains('delete')){}
 })
