@@ -14,6 +14,8 @@ let fetchTextData = ()=>{
             document.querySelector('#text-card').innerHTML=data; 
             // console.log(data);
         }); 
+    }).catch((err)=>{
+        console.error(err);
     });
 }; 
 
@@ -81,5 +83,7 @@ let fetchAPIData = ()=>{
             document.querySelector('#api-card').innerHTML = apiHtmlTemp; 
             // console.log(users); 
         });
+    }).catch((err)=>{
+        console.error(err);
     });
 };

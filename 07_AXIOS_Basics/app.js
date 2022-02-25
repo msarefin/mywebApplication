@@ -19,7 +19,6 @@ let fetchTextData = ()=>{
 };
 
 //JSON Data 
-
 let jsonButton = document.querySelector('#json-btn'); 
 jsonButton.addEventListener('click', function(){
     fetchJSONData(); 
@@ -48,4 +47,39 @@ let fetchJSONData = () =>{
 
 //API Data 
 let apiButton = document.querySelector('#api-btn'); 
+apiButton.addEventListener('click',function(){
+    fetchAPIData(); 
+});
 
+let fetchAPIData = ()=>{
+    axios.get('https://jsonplaceholder.typicode.com/users').then((response)=>{
+        if(response.status !== 200){
+            console.log(`Something went wrong: ${response.status}`);
+            return; 
+        }
+        let users = response.data; 
+        // console.log(users);
+        let htmlTemp = ''; 
+        for(let user of users){
+            htmlTemp +=`
+                <ul class = "list-group">
+                    <li class ="list-group-item">ID: ${user.id}</li>
+                    <li class ="list-group-item">Name: ${user.name}</li>
+                    <li class ="list-group-item">Username: ${user.username}</li>
+                    <li class ="list-group-item">email: ${user.email}</li>
+                    <li class ="list-group-item">Address:
+                        <ul>
+                            <li class="list-group-item">Street: ${user.address.street}</li>
+                            <li class="list-group-item">Suite: ${user.address.suite}</li>
+                            <li class="list-group-item">City: ${user.address.city}</li>
+                            <li class="list-group-item">Zip Code: ${user.address.code}</li>
+                        </ul>    
+                    </li>
+                </ul>    
+            `
+        }
+        document.querySelector('#api-card').innerHTML=htmlTemp;
+    }).catch((err)=>{
+        console.error(err);
+    });
+};
