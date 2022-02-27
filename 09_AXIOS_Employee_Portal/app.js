@@ -1,4 +1,3 @@
-import { BrainHttp } from "./API/BrainHttp.js";
 
 let serverURL = `http://127.0.0.1:3000/api`
 //Content loaded
@@ -8,8 +7,8 @@ window.addEventListener('DOMContentLoaded', function(e){
 
 let fetchEmployees = () =>{
     let url = `${serverURL}/employees`;
-    BrainHttp.get(url).then((data)=>{
-        let employees = data;
+    axios.get(url).then((response)=>{
+        let employees = response.data;
         let empRow = ''; 
         for (let employee of employees){
             empRow +=`
@@ -46,8 +45,8 @@ addEmployeeForm.addEventListener('submit', function(e){
         ip_address : document.querySelector('#add-ip-address').value 
     };
     let url = `${serverURL}/employees`;
-    BrainHttp.post(url, employee).then((value)=>{
-        console.log(value);
+    axios.post(url, employee).then((response)=>{
+        console.log(response.data);
         fetchEmployees();
     }).catch((err)=>{
         console.error(err);
@@ -74,8 +73,8 @@ tableBody.addEventListener('click', function(e){
         // console.log('Delete Button');
         let selectedID = targetElement.parentElement.parentElement.firstElementChild.innerHTML; 
         let url = `${serverURL}/employees/${selectedID}`;
-        BrainHttp.delete(url).then((data)=>{
-            console.log(data);
+        axios.delete(url).then((response)=>{
+            console.log(response.data);
             fetchEmployees();
         }).catch((err)=>{
             console.error(err);
@@ -87,8 +86,8 @@ tableBody.addEventListener('click', function(e){
         let selectedID = targetElement.parentElement.parentElement.firstElementChild.innerHTML; 
         let url = `${serverURL}/employees`;
         console.log(url);
-        BrainHttp.get(url).then((data)=>{
-            let employees = data; 
+        axios.get(url).then((response)=>{
+            let employees = response.data; 
             let selectedEmployee = employees.find((employee)=>{
                 return employee.id === selectedID.trim();
             }); 
@@ -122,8 +121,8 @@ updateEmployeeForm.addEventListener('submit', function(){
         email : document.querySelector('#update-email').value,
         ip_address : document.querySelector('#update-ip-address').value 
     };
-    BrainHttp.put(url, employee).then((data)=>{
-        console.log(data);
+    axios.put(url, employee).then((response)=>{
+        console.log(response.data);
         fetchEmployees(); 
     }).catch((err)=>{
         console.error(err);

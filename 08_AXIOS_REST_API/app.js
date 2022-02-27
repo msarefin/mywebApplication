@@ -1,5 +1,3 @@
-import { BrainHttp } from "./API/BrainHttp.js";
-
 // server url
 let serverURL = `http://127.0.0.1:3000/api`;
 
@@ -20,8 +18,8 @@ postButton.addEventListener('click',function(){
         email: 'ali@ahmed.com',
         ip_address: '220.42.33.12'
     };
-    BrainHttp.post(url,newEmployee).then((data)=>{
-        console.log(data);
+    axios.post(url,newEmployee).then((resource)=>{
+        console.log(resource.data);
         fetchEmpoyees();
     }).catch((err)=>{
         console.error(err);
@@ -41,8 +39,8 @@ putButton.addEventListener('click',function(){
         ip_address : '32.14.32.19'
     }
 
-    BrainHttp.put(url,updateEmployee).then((data)=>{
-        console.log(data); 
+    axios.put(url,updateEmployee).then((response)=>{
+        console.log(response.data); 
         fetchEmpoyees(); 
     }).catch((err)=>{
         console.error(err);
@@ -55,8 +53,8 @@ let deleteButton = document.querySelector('#delete-btn');
 deleteButton.addEventListener('click',function(){
     let empID = '_vwxyz';
     let url = `${serverURL}/employees/${empID}`; 
-    BrainHttp.delete(url).then((data)=>{
-        console.log(data); 
+    axios.delete(url).then((response)=>{
+        console.log(response.data); 
         fetchEmpoyees();
     }).catch((err)=>{
         console.error(err); 
@@ -67,8 +65,8 @@ deleteButton.addEventListener('click',function(){
 
 let fetchEmpoyees = ()=>{
     let url = `${serverURL}/employees`;
-    BrainHttp.get(url).then((data)=>{
-        let employees = data;
+    axios.get(url).then((resource)=>{
+        let employees = resource.data;
         let employeeRows = ''
         for(let employee of employees){
             employeeRows += `
