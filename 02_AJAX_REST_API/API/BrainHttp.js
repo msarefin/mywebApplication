@@ -3,7 +3,7 @@ export class BrainHttp{
         this.http = new XMLHttpRequest();
     }
 
-    // GET Request
+    // GET Request - Read 
 
     get = (url, callback) =>{
         this.http.open('GET',url, true); 
@@ -21,7 +21,7 @@ export class BrainHttp{
     }
 
 
-    // POST Request
+    // POST Request - Insert
 
     post = (url, employee, callback) =>{
         this.http.open('POST',url, true);
@@ -34,7 +34,7 @@ export class BrainHttp{
         } 
     };
 
-    // PUT Request
+    // PUT Request - Update
     put = (url, employee, callback) =>{
         this.http.open('PUT', url, true);
         this.http.setRequestHeader('Content-type','application/json');
@@ -47,7 +47,7 @@ export class BrainHttp{
     };
 
 
-    // DELETE Request 
+    // DELETE Request - Delete
     delete  =(url, callback)=>{
         this.http.open('DELETE',url, true);
         this.http.setRequestHeader('Content-type','application/json');
